@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    max-height: 10px;
+}
+
+@font-face {
+    font-family: gtasa; /* Имя шрифта */
+    src: url("../fonts/gtasa.ttf"); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto"; /* Имя шрифта */
+    src: url("../fonts/roboto.ttf"); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto Light"; /* Имя шрифта */
+    src: url("../fonts/roboto-lite.ttf"); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto Medium"; /* Имя шрифта */
+    src: url("../fonts/roboto-med.ttf"); /* Путь к файлу со шрифтом */
+}
+
+
+/*Фоновая картинка для страницы статистики*/
+.background-statistic {
+
+    /*----В скобках url указываем путь-----*/
+    background-image: url("../images/background-statistic.png");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1920px;
+    height: 1080px;
+    margin: auto;
+    font-family: "Roboto Light";
+}
+
+
+/*Стиль светящегося заголовка*/
+h1 {
+    font-family: gtasa;
+    font-size: 36px;
+    color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.73), -2px 0px 0px #fff, 2px 0px 0px #fff, 0px 2px 0px #fff, 0px -2px 0px #fff, 0 0 40px #fff;
+    margin: 0px 0 20px 0;
+    letter-spacing: 4px;
+}
+
+h1 .first {
+    font-size: 50px;
+}
+/*Конец стиля светящегося заголовка*/
+
+
+
+.left-block, .right-block {
+    display: inline-block;
+    width: 48%;
+    color: white;
+    margin-top: 20px;
+    padding-left: 30px;
+}
+
+.right-block {
+    vertical-align: top;
+}
+
+
+/*Стили для блока результаты игры*/
+.results table,
+.results .counter {
+    display: inline-block;
+}
+
+.results table,
+.results table th,
+.results table td{
+    border: white 1px solid;
+    border-collapse: collapse;
+    font-size: 19px;
+    text-align: center;
+    font-weight: normal;
+}
+
+.results table th,
+.results table td {
+    padding: 5px 10px;
+}
+
+
+.red-text {
+    color: #ef1644;
+}
+
+.blue-text {
+    color: #0557ff;
+}
+
+.results .counter {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin: 25px 0 0 85px;
+    height: 150px;
+    vertical-align: top;
+}
+
+.counter .red {
+    color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.73), -2px 0px 0px #ef1644, 2px 0px 0px #ef1644, 0px 2px 0px #ef1644, 0px -2px 0px #ef1644, 0 0 40px #ef1644;
+    font-family: gtasa;
+    font-size: 70px;
+    margin: 5px 0;
+}
+
+.counter .blue {
+    color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.73), -2px 0px 0px #0557ff, 2px 0px 0px #0557ff, 0px 2px 0px #0557ff, 0px -2px 0px #0557ff, 0 0 40px #0557ff;
+    font-family: gtasa;
+    font-size: 70px;
+    margin: 5px 0;
+}
+/*Конец стилей для блока результаты игры*/
+
+
+
+/*Стили для блока НАГРАДЫ*/
+.rewards .player {
+    display: inline-block;
+    text-align: center;
+    margin-right: 42px;
+    position: relative;
+}
+
+.rewards .player img {
+    width: 185px;
+    height: 185px;
+    filter: brightness(39%);
+}
+
+.rewards .player .text {
+    position: absolute;
+    top	: 142px;
+    left: 0;
+    width: 100%;
+    font-family: gtasa;
+    font-size: 20px;
+}
+
+.rewards .player .border {
+    width: 187px;
+    height: 187px;
+    border: 1px solid white;
+}
+
+.rewards .player .login {
+    font-size: 19px;
+    margin: 7px 0 20px 0;
+}
+
+.rewards .player.margin-0 {
+    margin-right: 0;
+}
+/*Конец стилей для блока НАГРАДЫ*/
+
+
+/*Стили для списка достижений*/
+.list {
+    font-size: 18px;
+    color: #f2f2f2;
+    margin-top: 27px;
+}
+.list .margin-bottom {
+    margin-bottom: 13px;
+}
+/*Конец стилей для списка достижений*/
+
+
+
+.right-block table {
+    max-width: 951px;
+}
+
+
+.right-block table,
+.right-block table th,
+.right-block table td{
+    border: white 1px solid;
+    border-collapse: collapse;
+    font-size: 16px;
+    text-align: center;
+    font-weight: normal;
+    word-wrap: break-word;
+}
+
+.right-block table td{
+    word-break: break-all;
+}
+
+.right-block table th,
+.right-block table td {
+    padding: 12px 8px;
+}
+

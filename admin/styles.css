@@ -1,0 +1,130 @@
+﻿html, body
+{
+	margin:0;
+	padding:0;
+	font: normal 16px Tahoma;
+	max-width: 100%;
+    overflow1-x: scroll;
+}
+a
+{
+	color: #1e90ff;
+	font-size: 16px;
+	text-decoration:none;
+}
+input, button{
+	height: 17px !important;
+	font-size: 11px !important;
+	border: solid 1px lightgray !important;
+}
+select{
+
+}
+table 
+{
+	border-collapse:collapse;
+	border: solid 1px #A4C1C7;
+	text-align: left;
+	width: 100%;
+  	
+}
+
+td
+{
+	border-color: #A4C1C7;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.menu {
+	margin:5px;
+}
+.menu a{
+	font: normal 14px Tahoma;
+}
+
+.head {
+	border-color: #A4C1C7;
+	font-size: 16px;
+	text-align: center;
+}
+
+.head span{
+	font-weight: bold;
+}
+.tbllist{
+	min-width: 95%;
+	max-width: 98%;
+	margin-left: 5px;
+	margin-top: 10px;
+	display: flex;
+  	flex-direction: column;
+}
+
+.tbllist img{
+	border: none;
+	cursor: pointer;
+	margin: 0 1px 0 1px;
+}
+
+.divItem{
+	margin: 5px;
+	margin-top: 2px;
+	width: 98%;
+	display: none;
+	flex-direction: column;
+}
+
+.divItem img{
+	border: none;
+	cursor: pointer;
+	margin: 0 1px 0 1px;
+}
+
+.divItem select{
+	width:205px;
+}
+
+div.head{
+	background: none;
+	border: solid 1px #A4C1C7;
+	border-bottom: 0px;
+	padding: 3px 5px 5px 3px;
+	text-align: left;
+	flex: 1;
+}
+tr.head{
+	background-color: gainsboro;
+}
+.head select{
+	font-size: 11px;
+}
+
+/*.hform{
+	float:left;
+	line-height: 25px;
+	margin-bottom: 5px;
+	clear: both;
+	margin-top: 5px;
+	width: 500px;
+}
+
+.hform select{
+	float: right;
+	margin: 4px 0px 0 0;
+	width:205px;
+}
+
+.hform input{
+	width:100px;
+	float: right;
+	margin: 5px 0px 0 0;
+}*/
+table td{
+	white-space: nowrap;
+}
+
+.hidden{
+	display: none;
+}
+

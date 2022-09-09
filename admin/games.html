@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv=content-type content="charset=utf-8">
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="js/games.js" type="text/javascript"></script>
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="menu">
+		Перейти: Игры | <a href="missions.html">Сценарии</a> | <a href="sounds.html">Пресеты звуков</a> | <a href="settings.html">Настройки</a> | <a href="http://192.168.0.108">Панель управления</a>
+	</div>
+	<div id="games" class="tbllist">
+	    <div class="head">
+	    	<span>Список игр</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddGame">Добавить игру</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	            <td width="5%" style="display: none;">Id</td>
+	            <td width="5%">№</td>
+	            <td width="25%">Название</td>
+	            <td width="60%"></td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divGameItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideGameItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveGameItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+			<tr>
+	            <td width="10%">Номер: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="players" class="tbllist" style="display:none">
+	    <div class="head">
+	    	<span>Список игроков</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkHideGamePlayers">Скрыть</a> | <a href="javascript:" id="lnkAddPlayer">Добавить игрока</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="0%" style="display: none;">Id</td>
+	            <td width="5%">TagerId</td>
+	            <td width="25%">Имя</td>
+	            <td width="60%">Команда</td>
+	            <td width="0%" style="display: none;">Color</td>
+	            <td width="0%" style="display: none;">PlayerId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divPlayerItem" class="divItem">
+		<div class="head">
+			<span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHidePlayerItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSavePlayerItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">TagerId: </td>
+	            <td width="90%"><input type="text" style="width:100px" /></td>
+			</tr>
+	        <tr>
+	            <td>Имя: </td>
+	            <td><input type="text" style="width:200px" />&nbsp;<select id="selPlayers" style="width:205px; position: relative; top: 1px;"></td>
+			</tr>
+			<tr>
+	            <td>Команда: </td>
+	            <td><select id="selCommand" style="width:205px"></select>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="results" class="tbllist" style="display:none">
+	    <div class="head">
+	    	<span>Результаты игры</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkHideResults">Скрыть</a> | <a href="javascript:" id="lnkAddResult">Добавить результат раунда</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="0%" style="display: none;">Id</td>
+	            <td width="5%">№</td>
+	            <td width="25%">Сценарий</td>
+	            <td width="25%">Результат</td>
+	            <td width="35%">Счет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="stats" class="tbllist" style="display:none">
+	    <div class="head">
+	    	<span>Статистика игроков</span>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="5%">№</td>
+	        	<td width="5%">Id</td>
+	            <td width="10%">Игрок</td>
+	            <td width="10%">Оружие</td>
+	            <td width="10%">Команда</td>
+	            <td width="10%">Очки</td>
+	            <td width="10%">Кол-во<br />захватов</td>
+	            <td width="10%">Кол-во первых<br /> захватов</td>
+	            <td width="10%">Кол-во последних<br />захватов</td>
+	            <td width="10%">Установлено<br />бомб</td>
+	            <td width="10%">Точек с<br />флагом</td>
+	        </tr>
+	    </table>
+	</div>
+	
+	<div id="divResultItem" class="divItem">
+		<div class="head">
+			<span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideResultItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveResultItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td>Сценарий: </td>
+	            <td><select id="selMission" style="width:205px"></select></td>
+			</tr>
+	    	<tr>
+	            <td width="10%">Очки красные: </td>
+	            <td width="90%"><input type="text" style="width:100px" /></td>
+			</tr>
+			<tr>
+	            <td width="10%">Очки синие: </td>
+	            <td width="90%"><input type="text" style="width:100px" /></td>
+			</tr>
+			<tr>
+	            <td>Кто выиграл: </td>
+	            <td><select id="selCommandResult" style="width:205px"></select></td>
+			</tr>
+			<tr>
+	            <td width="10%">Ничья: </td>
+	            <td width="90%"><input type="checkbox" /></td>
+			</tr>
+			
+	    </table>
+	</div>
+	
+</body>
+</html>

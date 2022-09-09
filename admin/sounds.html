@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv=content-type content="charset=utf-8">
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="js/sounds.js" type="text/javascript"></script>
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="menu">
+		Перейти: <a href="games.html">Игры</a> | <a href="missions.html">Сценарии</a> | Пресеты звуков | <a href="settings.html">Настройки</a> | <a href="http://192.168.0.108">Панель управления</a>
+	</div>
+	<div id="soundsround" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки раунда</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundRound">Добавить звук раунда</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	        	<td width="2%">№</td>
+	            <td width="30%">Имя пресета</td>
+	            <td width="7%" style="display: none;">Фон музыка</td>
+	            <td width="7%" style="display: none;">Фон музыка(10%)</td>
+	            <td width="7%" style="display: none;">Красные готовы</td>
+	            <td width="7%" style="display: none;">Синие готовы</td>
+	            <td width="7%" style="display: none;">Старт раунда</td>
+	            <td width="7%" style="display: none;">Победа красных</td>
+	            <td width="7%" style="display: none;">Победа синих</td>
+	            <td width="7%" style="display: none;">Ничья</td>
+	            <td width="7%" style="display: none;">Раунд завершен</td>
+	            <td width="7%" style="display: none;">Остановка раунда</td>
+	            
+	            <td width="7%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundRoundItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundRoundItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundRoundItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Фон музыка: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Фон музыка(10%): </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Красные готовы: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Синие готовы: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Старт раунда: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Победа красных: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Победа синих: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Ничья: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Раунд завершен: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Остановка раунда: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			
+	    </table>
+	</div>
+	
+	<div id="soundtimes" class="tbllist">
+	    <div class="head">
+	    	<span>Оповещение о времени</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundTime">Добавить звук оповещения</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="0%" style="display: none;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя пресета</td>
+	            <td width="20%">Сколько секунд до конца</td>
+	            <td width="40%">Звук</td>
+	            <td style="width:0; display: none;">PresetId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundTimeItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundTimeItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundTimeItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><select id="selSoundsRound"></td>
+			</tr>
+	        <tr>
+	            <td>Сколько секунд до конца: </td>
+	            <td><input type="text" style="width:100px" /></td>
+			</tr>
+			<tr>
+	            <td>Звук: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	
+	<div id="soundspoint1" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки точек 1</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundPoint1">Добавить звук точки</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя пресета</td>
+	            <td width="20%">Имя точки</td>
+	            <td width="20%">Звук красных</td>
+	            <td width="20%">Звук синих</td>
+	            <td style="display: none; width:0;">PointId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundPoint1Item" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundPoint1Item">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundPoint1Item">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Точка: </td>
+	            <td><select id="selPoints"></td>
+			</tr>
+			<tr>
+	            <td>Звук красных: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Звук синих: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="soundpoint2" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки точек 2</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundPoint2">Добавить звук</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя пресета</td>
+	            <td width="20%">Лидируют красные</td>
+	            <td width="20%">Лидируют синие</td>
+	            <td width="20%">Период оповещения, минут</td>
+	            <td style="display: none; width:0;">PointId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundPoint2Item" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundPoint2Item">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundPoint2Item">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Лидируют красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Лидируют синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Период оповещения, минут: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	<div id="soundtakeflag" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки захвата флага</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundTakeFlag">Добавить звук захвата флага</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="30%">Имя пресета</td>
+	            <td width="9%" style="display: none;">Взятие флага, кр.</td>
+	            <td width="9%" style="display: none;">Сброс флага, кр.</td>
+	            <td width="9%" style="display: none;">Завершен перенос, кр.</td>
+	            <td width="9%" style="display: none;">Взятие точки, кр.</td>
+	            <td width="9%" style="display: none;">Взятие флага, с.</td>
+	            <td width="9%" style="display: none;">Сброс флага, с.</td>
+	            <td width="9%" style="display: none;">Завершен перенос, с.</td>
+	            <td width="9%" style="display: none;">Взятие точки, с.</td>
+	            <td width="9%" style="display: none;">Разрешена установка к.</td>
+	            <td width="9%" style="display: none;">Разрешена установка с.</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundTakeFlagItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundTakeFlagItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundTakeFlagItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Взятие флага, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Сброс флага, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Завершен перенос флага, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Взятие точки, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Взятие флага, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Сброс флага, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Завершен перенос флага, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Взятие точки, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Разрешена установка, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Разрешена установка, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	<div id="soundtakehome" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки уничтожения домов</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundTakeHome">Добавить звук уничтожения домов</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя пресета</td>
+	            <td width="20%">Имя точки</td>
+	            <td width="40%">Звук</td>
+	            <td style="display: none; width:0;">PointId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundTakeHomeItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundTakeHomeItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundTakeHomeItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Точка: </td>
+	            <td><select id="selPoints"></td>
+			</tr>
+			<tr>
+	            <td>Звук: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="soundsurv" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки выживания</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundSurv">Добавить звук выживания</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя пресета</td>
+	            <td width="60%">Звук</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundSurvItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundSurvItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundSurvItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Звук: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	<div id="soundsetupbomb" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки установки бомбы</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundSetupBomb">Добавить звук установки бомбы</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="2%">№</td>
+	        	<td width="30%">Имя пресета</td>
+	            <td width="7%" style="display: none;">Получена, кр.</td>
+	            <td width="7%" style="display: none;">Установлена, кр.</td>
+	            <td width="7%" style="display: none;">Произведена, кр.</td>
+	            <td width="7%" style="display: none;">Потеряна, кр.</td>
+	            <td width="7%" style="display: none;">Обезврежена, кр.</td>
+	            <td width="7%" style="display: none;">Получена, с.</td>
+	            <td width="7%" style="display: none;">Установлена, с.</td>
+	            <td width="7%" style="display: none;">Произведена, с.</td>
+	            <td width="7%" style="display: none;">Потеряна, с.</td>
+	            <td width="7%" style="display: none;">Обезврежена, с.</td>
+	            <td width="5%" style="display: none;">Взрыв</td>
+	            <td width="5%" style="display: none;">Писк</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundSetupBombItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundSetupBombItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundSetupBombItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="15%">Имя пресета: </td>
+	            <td width="85%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Бомба получена, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба установлена, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба произведена, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба потеряна, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бобма обезврежена, красные: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			
+			<tr>
+	            <td>Бомба получена, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба установлена, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба произведена, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба потяряна, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Бомба обезврежена, синие: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			
+			<tr>
+	            <td>Бомба взрыв:</td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Писк (отсчет времени):</td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="soundsbase" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки базы</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundBase">Добавить звук базы</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя пресета</td>
+	            <td width="30%">Восполнение возрождения</td>
+	            <td width="30%">Закончились возрождения</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundBaseItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundBaseItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundBaseItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя пресета: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Восполнение возрождения: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Закончились возрождения: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	<div id="soundsresoursecome" class="tbllist">
+	    <div class="head">
+	    	<span>Звуки прихода ресурсов</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddSoundResourseCome">Добавить звук прихода ресурсов</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td style="display: none; width:0;">Id</td>
+	        	<td width="5%">№</td>
+	        	<td width="25%">Имя ресурса</td>
+	            <td width="30%">Файл</td>
+	            <td width="30%">Звук базы</td>
+	            <td style="display: none; width:0;">ResourseId</td>
+	            <td style="display: none; width:0;">IdSoundBase</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divSoundResourseComeItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideSoundResourseCome">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveSoundResourseCome">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Имя ресурса: </td>
+	            <td width="90%"><select id="selResource"></td>
+			</tr>
+			<tr>
+	            <td>Файл: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td>Звук базы: </td>
+	            <td><select id="selSoundBase"></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	
+	
+</body>
+</html>

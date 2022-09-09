@@ -1,0 +1,236 @@
+/*--------ОБЩИЕ СТИЛИ-------------*/
+*, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+}
+
+@font-face {
+    font-family: gtasa; /* Имя шрифта */
+    src: url("../fonts/gtasa.ttf"); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto"; /* Имя шрифта */
+    src: url("../fonts/roboto.ttf"); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto Light"; /* Имя шрифта */
+    src: url("../fonts/roboto-lite.ttf"); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: "Roboto Medium"; /* Имя шрифта */
+    src: url("../fonts/roboto-med.ttf"); /* Путь к файлу со шрифтом */
+}
+
+
+
+/*Стили для блока "СТАТУС, ИНСТРУКЦИЯ, ЗАДАНИЕ"*/
+.info-left {
+    display: inline-block;
+    margin-top: 60px;
+    margin-left: 65px;
+    position: absolute;
+    z-index: 5;
+}
+
+.info-left .element {
+    margin-bottom: 40px;
+}
+
+.info-left .text-info {
+    font-family: "Roboto Light" !important;
+    color: white;
+    font-size: 25px;
+    line-height: 37px;
+}
+
+.info-left .margin-bottom {
+    margin-bottom: 20px;
+}
+/*Конец стилей для блока "СТАТУС, ИНСТРУКЦИЯ, ЗАДАНИЕ"*/
+
+
+/*Стили для блока названия команды*/
+.team-name {
+    color: white;
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 43px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    float: right;
+    margin-right: 65px;
+    margin-top: 30px;
+}
+
+.team-name .city {
+    font-size: 57px;
+}
+/*Конец стилей для блока названия команды*/
+
+
+/*Стили для оставшихся ресурсов*/
+.resources {
+    display: block;
+    text-align: center;
+    font-family: "Roboto Medium" !important;
+    font-size: 25px;
+    color: white;
+    margin-top: 117px;
+    position: absolute;
+    z-index: 1;
+    top: 639px;
+}
+
+.resources .counter {
+    font-size: 48px;
+    font-family: "Roboto Light";
+}
+
+.resources img {
+    height: 170px;
+}
+
+.resources .margin-bottom {
+    margin-bottom: 37px;
+}
+
+.resources .element-1,
+.resources .element-2,
+.resources .element-3{
+    display: inline-block;
+    position: absolute;
+}
+
+/*АПТЕЧКИ*/
+.resources .element-1 {
+    /*Изменяйте значение left.*/
+    /*Уменьшайте значение, чтобы сдвинуть влево.*/
+    /*Увеличивайте, чтобы сдвинуть вправо*/
+    left: 280px;
+}
+
+/*ПАТРОНЫ*/
+.resources .element-2 {
+    /*Изменяйте значение left.*/
+    /*Уменьшайте значение, чтобы сдвинуть влево.*/
+    /*Увеличивайте, чтобы сдвинуть вправо*/
+    left: 830px;
+}
+
+/*РЕСУРСЫ*/
+.resources .element-3 {
+    /*Изменяйте значение left.*/
+    /*Уменьшайте значение, чтобы сдвинуть влево.*/
+    /*Увеличивайте, чтобы сдвинуть вправо*/
+    left: 1400px;
+}
+/*Конец стилей для оставшихся ресурсов*/
+
+/*--------КОНЕЦ ОБЩИХ СТИЛЕЙ----------*/
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+
+/*-------СТИЛИ ДЛЯ СИНИХ----------*/
+
+/*Фоновая картинка для СИНИХ*/
+.background-blue {
+
+    /*----В скобках url указываем путь-----*/
+    background-image: url("../images/background-blue.png");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1920px;
+    height: 1080px;
+    margin: auto;
+    position: relative;
+}
+
+
+/*Стили для блока "СТАТУС, ИНСТРУКЦИЯ, ЗАДАНИЕ" - неоновый текст*/
+.info-left .caption-blue {
+    color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.73), -2px 0px 0px #0557ff, 2px 0px 0px #0557ff, 0px 1px 0px #0557ff, 0px -1px 0px #0557ff, 0 0 40px #0557ff;
+    font-family: gtasa;
+    font-size: 37px;
+    margin: 5px 0;
+}
+/*Конец стилей для блока "СТАТУС, ИНСТРУКЦИЯ, ЗАДАНИЕ" - неоновый текст*/
+
+/*-------КОНЕЦ СТИЛЕЙ ДЛЯ СИНИХ--------*/
+
+
+
+
+
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+
+/*-------СТИЛИ ДЛЯ КРАСНЫХ----------*/
+
+/*Фоновая картинка для КРАСНЫХ*/
+.background-red {
+
+    /*----В скобках url указываем путь-----*/
+    background-image: url("../images/background-red.png");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1920px;
+    height: 1080px;
+    margin: auto;
+    position: relative;
+}
+
+.info-left .caption-red {
+    color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.73), -2px 0px 0px #ef1644, 2px 0px 0px #ef1644, 0px 1px 0px #ef1644, 0px -1px 0px #ef1644, 0 0 40px #ef1644;
+    font-family: gtasa;
+    font-size: 37px;
+    margin: 5px 0;
+}
+
+/*-------КОНЕЦ СТИЛЕЙ ДЛЯ КРАСНЫХ--------*/
+
+.info-left .caption-off {
+    color: transparent;
+    text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.73), -2px 0px 0px #ffffff, 2px 0px 0px #ffffff, 0px 1px 0px #ffffff, 0px -1px 0px #ffffff, 0 0 40px #ffffff;
+    font-family: gtasa;
+    font-size: 37px;
+    margin: 5px 0;
+}
+
+
+.background-off {
+
+    /*----В скобках url указываем путь-----*/
+    background-image: url("../images/background-statistic.png");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 1920px;
+    height: 1080px;
+    margin: auto;
+    font-family: "Roboto Light";
+}

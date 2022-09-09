@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv=content-type content="charset=utf-8">
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="js/missions.js" type="text/javascript"></script>
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="menu">
+		Перейти: <a href="games.html">Игры</a> | Сценарии | <a href="sounds.html">Пресеты звуков</a> | <a href="settings.html">Настройки</a> | <a href="http://192.168.0.108">Панель управления</a>
+	</div>
+	<div id="missions" class="tbllist">
+	    <div class="head">
+	    	<span>Список сценариев</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddMission">Добавить сценарий</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	            <td style="width: 0; display:none;">Id</td>
+	            <td width="5%">№</td>
+	            <td width="25%">Название</td>
+	            <td width="60%">Режим работы точек</td>
+	            <td style="width: 0; display: none;">TypePoint</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divMissionItem" class="divItem" style="width: 98%">
+		<div class="head">
+		    <span>Настройки сценария</span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideMissionItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveMissionItem">Сохранить</a>
+	    	</div>
+	    	
+	    </div>
+	    
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td style="width: 15%">Название: </td>
+	            <td style="width: 85%"><input type="text" data-id="Name" style="width: 500px;" /></td>
+			</tr>
+			<tr>
+	            <td>Режим работы точек: </td>
+	            <td><select id="selTypePoint" data-id="TypePoint"></td>
+			</tr>
+	    	<tr>
+	            <td style="width: 15%">Максимальное время раунда: </td>
+	            <td style="width: 85%"><input type="text" data-id="MaxTime" /></td>
+			</tr>
+	        <tr>
+	            <td>Количество очков для победы: </td>
+	            <td><input type="text" data-id="MaxScore"/></td>
+			</tr>
+			<tr>
+	            <td>Легенда синих: </td>
+	            <td><input type="text" data-id="BlueLegend" /></td>
+			</tr>
+			<tr>
+	            <td>Легенда красных: </td>
+	            <td><input type="text" data-id="RedLegend"/></td>
+			</tr>
+			<tr>
+	            <td>Пресет звуков раунда: </td>
+	            <td><select id="selSoundsRound" data-id="IdSoundRound"></td>
+			</tr>
+			<tr>
+	            <td>Пресет звуков точек: </td>
+	            <td><select id="selSoundsPoints" data-id="SoundPointId"></td>
+			</tr>
+			<tr>
+	            <td>Пресет звуков базы: </td>
+	            <td><select id="selSoundsBase" data-id="IdSoundBase"></td>
+			</tr>
+	    </table>
+	    
+	</div>
+	
+	<div id="divSettingsPoint" class="divItem" style="width: 98%">
+		<div class="head">
+		    <span>Настройки точек</span>
+		    <div style="float:right">
+	    		<a href="javascript:" id="lnkAddSettingsPoint">Добавить точку</a>
+	    	</div>
+	    	<div id="divMissionItemPointParams2" class="hform hidden">
+	    		<table border="0" cellspacing="0" cellpadding="0" style="width: 500px; border: none;">
+			        <tr>
+	    				<td style="width: 50%">Время сброса захвата: </td>
+	    				<td style="width: 50%; text-align: right;"><input type="text" data-id="TimeResetTogether"/></td>
+	    			</tr>
+			    	<tr>
+			            <td>Кто может захватить точки: </td>
+			            <td style="text-align: right;"><select data-id="WhoCanId" id="selWhoCan"></select></td>
+					</tr>
+			    </table>
+	    	</div>
+	    	
+	    	<div id="divMissionItemPointParams3" class="hform hidden">
+	    		<table border="0" cellspacing="0" cellpadding="0" style="width: 500px; border: none;">
+			    	<tr>
+			            <td style="width: 50%">Количество очков при захвате цепочки: </td>
+			            <td style="width: 50%; text-align: right;"><input data-id="Score" type="text" /></td>
+			        </tr>
+			        <tr>
+	    				<td style="width: 50%">Время сброса захвата: </td>
+	    				<td style="width: 50%; text-align: right;"><input type="text" data-id="TimeResetTogether"/></td>
+	    			</tr>
+	    	
+					</tr>
+					<tr>
+			            <td>Встречный захват: </td>
+			            <td style="text-align: right;"><input data-id="Towards" type="checkbox" style="width:10px"  /></td>
+					</tr>
+			    	<tr>
+			            <td>Кто может захватить точки: </td>
+			            <td style="text-align: right;"><select data-id="WhoCanId" id="selWhoCan"></select></td>
+					</tr>
+			        <tr>
+			            <td>Ресурс при захвате цепочки: </td>
+			            <td style="text-align: right;"><select data-id="ResourceId" id="selResource"></select></td>
+					</tr>
+			    </table>
+	    	</div>
+	    	
+	    	<div id="divMissionItemPointParams4" class=" hidden">
+	    		
+	    		<table border="0" cellspacing="0" cellpadding="0" style="width: 500px; float:left; display: inline-table; border: none;">
+			    	<tr>
+			            <td style="width: 50%">Красные переносят флаг: </td>
+			            <td style="width: 50%; text-align: right;"><input data-id="RedAllow" type="checkbox" style="width:10px"/></td>
+					</tr>
+					<tr>
+			            <td>Откуда: </td>
+			            <td style="text-align: right;"><select data-id="RedBase" id="selPoint"></select></td>
+					</tr>
+			    	<tr>
+			            <td>Куда: </td>
+			            <td style="text-align: right;"><select data-id="RedAim" id="selPoint"></select></td>
+					</tr>
+			        <tr>
+			            <td>Сколько точек: </td>
+			            <td style="text-align: right;"><input data-id="RedNPoint" type="text"/></td>
+					</tr>
+					<tr>
+			            <td>Количество очков при переносе флага: </td>
+			            <td style="text-align: right;"><input data-id="RedScoreFlag" type="text" /></td>
+					</tr>
+					<tr>
+			            <td>Ресурс при переносе: </td>
+			            <td style="text-align: right;"><select data-id="RedResourceId" id="selResource"></select></td>
+					</tr>
+					<tr>
+			            <td>Время на захват точки: </td>
+			            <td style="text-align: right;"><input data-id="RedTimeTake" type="text" /></td>
+					</tr>
+			    </table>
+	    		
+	    		<table border="0" cellspacing="0" cellpadding="0" style="width: 500px; float:left; display: inline-table; border: none; margin-left: 20px; ">
+			    	<tr>
+			            <td style="width: 50%">Синие переносят флаг: </td>
+			            <td style="width: 50%; text-align: right;"><input data-id="BlueAllow" type="checkbox" style="width:10px"/></td>
+					</tr>
+					<tr>
+			            <td>Откуда: </td>
+			            <td style="text-align: right;"><select data-id="BlueBase" id="selPoint"></select></td>
+					</tr>
+			    	<tr>
+			            <td>Куда: </td>
+			            <td style="text-align: right;"><select data-id="BlueAim" id="selPoint"></select></td>
+					</tr>
+			        <tr>
+			            <td>Сколько точек: </td>
+			            <td style="text-align: right;"><input data-id="BlueNPoint" type="text"/></td>
+					</tr>
+					<tr>
+			            <td>Количество очков при переносе флага: </td>
+			            <td style="text-align: right;"><input data-id="BlueScoreFlag" type="text" /></td>
+					</tr>
+					<tr>
+			            <td>Ресурс при переносе: </td>
+			            <td style="text-align: right;"><select data-id="BlueResourceId" id="selResource"></select></td>
+					</tr>
+					<tr>
+			            <td>Время на захват точки: </td>
+			            <td style="text-align: right;"><input data-id="BlueTimeTake" type="text" /></td>
+					</tr>
+			    </table>
+	    		
+	    	</div>
+	    	
+	    	<div id="divMissionItemPointParams6" class="hform hidden">
+	    		<table border="0" cellspacing="0" cellpadding="0" style="width: 500px; border: none; ">
+			    	<tr>
+			            <td>Финальная точка: </td>
+			            <td style="text-align: right;"><select data-id="FinalPoint" id="selPoint"></select></td>
+					</tr>
+			        <tr>
+			            <td>Периодичность вывода патронов: </td>
+			            <td style="text-align: right;"><input data-id="PeriodWeapon" type="text"/></td>
+					</tr>
+					<tr>
+			            <td>Длительность сирены: </td>
+			            <td style="text-align: right;"><input data-id="DurationAlarm" type="text" /></td>
+					</tr>
+			    </table>
+	    		
+	    	</div>
+	    	
+	    	<div id="divMissionItemPointParams7" class="hform hidden">
+	    	
+	    		<table border="0" cellspacing="0" cellpadding="0" style="width: 500px; border: none; ">
+			    	<tr>
+			            <td>Период производства бомбы: </td>
+			            <td style="text-align: right;"><input data-id="PeriodBomb" type="text"/></td>
+					</tr>
+			        <tr>
+			            <td>Таймер бомбы: </td>
+			            <td style="text-align: right;"><input data-id="TimerBomb" type="text"/></td>
+					</tr>
+					<tr>
+			            <td>Время на установку: </td>
+			            <td style="text-align: right;"><input data-id="TimerForSetup" type="text" /></td>
+					</tr>
+			    </table>
+	    		
+	    	</div>
+	    	
+	    </div>
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point1" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Режим работы</td>
+	            <td width="8%">Пресет настроек</td>
+	            <td width="8%">Ресурс <br />при захвате</td>
+	            <td width="5%">Время<br /> накопления</td>
+	            <td width="7%">Кол-во очков при <br />накоплении</td>
+	            <td width="7%" style="display: none;">Красные,<br /> первый захват</td>
+	            <td width="7%" style="display: none;">Красные,<br /> последний захват</td>
+	            <td width="7%" style="display: none;">Синие,<br /> первый захват</td>
+	            <td width="7%" style="display: none;">Синие,<br /> последний захват</td>
+	            <td width="8%">Ресурс при<br /> накоплении</td>
+	            <td width="6%">Время сброса<br /> захвата</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point2" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Пресет настроек</td>
+	            <td width="8%">Ресурс <br />при захвате</td>
+	            <td width="7%">Кол-во очков при <br />захвате</td>
+	            <td width="6%">Приоритет</td>
+	            <td width="7%">Красные,<br /> первый захват</td>
+	            <td width="7%">Синие,<br /> первый захват</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point3" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Пресет настроек</td>
+	            <td width="8%">Ресурс <br />при захвате</td>
+	            <td width="7%">Кол-во очков при <br />захвате точки</td>
+	            <td width="6%">Приоритет</td>
+	            <td width="5%">Время<br /> удержания точки</td>
+	            <td width="7%">Красные, захват</td>
+	            <td width="7%">Синие, захват</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point4" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Пресет настроек</td>
+	            <td width="8%">Ресурс <br />при захвате</td>
+	            <td width="7%">Кол-во очков при <br />захвате точки</td>
+	            <td width="7%">Красные, захват</td>
+	            <td width="7%">Синие, захват</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point5" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Пресет настроек</td>
+	            <td width="8%">Ресурс <br />при уничтожении</td>
+	            <td width="5%">Чей дом</td>
+	            <td width="7%">Кол-во очков при <br />уничтожении</td>
+	            <td width="7%">Красные, захват</td>
+	            <td width="7%">Синие, захват</td>
+	            <td width="5%">Время восполнения<br /> 5%</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point6" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Пресет настроек</td>
+	            <td width="8%">Ресурс <br />при захвате</td>
+	            <td width="5%">Время старта<br /> выдачи патронов</td>
+	            <td width="7%">Кол-во<br />захватов</td>
+	            <td width="7%">Кол-во очков при <br />захвате</td>
+	            <td width="5%">Время<br /> сброса захвата</td>
+	            <td width="6%">Начало<br /> радиации</td>
+	            <td width="7%">Интервал<br /> радиации</td>
+	            <td width="7%" style="display: none;">Урон<br /> радиации</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    <table border="1" cellspacing="0" cellpadding="0" id="settings_point7" class="hidden">
+	        <tr class="head">
+	            <td width="0%" style="display: none;">Id</td>
+	            <td width="2%">№</td>
+	            <td width="10%">Название точки</td>
+	            <td width="8%">Тип</td>
+	            <td width="8%">Очки <br />за подрыв</td>
+	            <td width="7%">Очки игроку<br />за подрыв</td>
+	            <td width="7%">Очки игроку<br />за обезвреживание</td>
+	            <td width="6%" style="display: none;">Приоритет<br />подрыва</td>
+	            <td width="5%">Играет</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	    
+	    <div id="divPointItem1" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+		        <tr>
+		            <td>Режим работы: </td>
+		            <td><select id="selPointTypeM1" data-id="TypeWork"></td>
+				</tr>
+				<tr>
+		            <td>Пресет настроек: </td>
+		            <td><select id="selPreset" data-id="MainPresetId"></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при захвате: </td>
+		            <td><select id="selResource" data-id="ResourceTakeId"></td>
+				</tr>
+				<tr>
+		            <td>Время накопления: </td>
+		            <td><input type="text" style="width:200px" data-id="NeedTime" /></td>
+				</tr>
+				<tr>
+		            <td>Кол-во очков при накоплении: </td>
+		            <td><input type="text" style="width:200px" data-id="ScoreComplite" /></td>
+				</tr>
+				<tr>
+		            <td>Красные, первый захват: </td>
+		            <td><input type="text" style="width:200px" data-id="RedFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Красные, последний захват: </td>
+		            <td><input type="text" style="width:200px" data-id="RedLastTake" /></td>
+				</tr>
+				<tr>
+		            <td>Синие, первый захват: </td>
+		            <td><input type="text" style="width:200px" data-id="BlueFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Синие, последний захват: </td>
+		            <td><input type="text" style="width:200px" data-id="BlueLastTake" /></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при накоплении: </td>
+		            <td><select id="selResource2" data-id="ResourceIdComlite" ></td>
+				</tr>
+				<tr>
+		            <td>Время сброса захвата: </td>
+		            <td><input type="text" style="width:200px" data-id="TimeReset" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+				
+		    </table>
+		</div>
+		
+		
+		<div id="divPointItem2" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+				<tr>
+		            <td>Пресет настроек: </td>
+		            <td><select id="selPreset" data-id="MainPresetId"></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при захвате: </td>
+		            <td><select id="selResource" data-id="ResourceTakeId"></td>
+				</tr>
+				<tr>
+		            <td>Кол-во очков при накоплении: </td>
+		            <td><input type="text" style="width:200px" data-id="ScoreComplite" /></td>
+				</tr>
+				<tr>
+		            <td>Приоритет: </td>
+		            <td><input type="text" style="width:200px" data-id="Order" /></td>
+				</tr>
+				<tr>
+		            <td>Красные, первый захват: </td>
+		            <td><input type="text" style="width:200px" data-id="RedFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Синие, первый захват: </td>
+		            <td><input type="text" style="width:200px" data-id="BlueFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+				
+		    </table>
+		</div>
+		
+		<div id="divPointItem3" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+				<tr>
+		            <td>Пресет настроек: </td>
+		            <td><select id="selPreset" data-id="MainPresetId"></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при захвате: </td>
+		            <td><select id="selResource" data-id="ResourceTakeId"></td>
+				</tr>
+				<tr>
+		            <td>Кол-во очков при захвате точки: </td>
+		            <td><input type="text" style="width:200px" data-id="ScoreComplite" /></td>
+				</tr>
+				<tr>
+		            <td>Приоритет: </td>
+		            <td><input type="text" style="width:200px" data-id="Order" /></td>
+				</tr>
+				<tr>
+		            <td>Время удержания точки: </td>
+		            <td><input type="text" style="width:200px" data-id="NeedTime" /></td>
+				</tr>
+				<tr>
+		            <td>Красные, захват: </td>
+		            <td><input type="text" style="width:200px" data-id="RedFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Синие, захват: </td>
+		            <td><input type="text" style="width:200px" data-id="BlueFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+				
+		    </table>
+		</div>
+		
+		<div id="divPointItem4" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+				<tr>
+		            <td>Пресет настроек: </td>
+		            <td><select id="selPreset" data-id="MainPresetId"></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при захвате: </td>
+		            <td><select id="selResource" data-id="ResourceTakeId"></td>
+				</tr>
+				<tr>
+		            <td>Кол-во очков при захвате точки: </td>
+		            <td><input type="text" style="width:200px" data-id="ScoreComplite" /></td>
+				</tr>
+				<tr>
+		            <td>Красные, захват: </td>
+		            <td><input type="text" style="width:200px" data-id="RedFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Синие, захват: </td>
+		            <td><input type="text" style="width:200px" data-id="BlueFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+				
+		    </table>
+		</div>
+		
+		<div id="divPointItem5" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+				<tr>
+		            <td>Пресет настроек: </td>
+		            <td><select id="selPreset" data-id="MainPresetId"></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при уничтожении: </td>
+		            <td><select id="selResource" data-id="ResourceTakeId"></td>
+				</tr>
+				<tr>
+		            <td>Чей дом: </td>
+		            <td><select id="selCommand" data-id="WhoseHome"></td>
+				</tr>
+				<tr>
+		            <td>Кол-во очков при уничтожении: </td>
+		            <td><input type="text" style="width:200px" data-id="ScoreComplite" /></td>
+				</tr>
+				<tr>
+		            <td>Красные, захват: </td>
+		            <td><input type="text" style="width:200px" data-id="RedFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Синие, захват: </td>
+		            <td><input type="text" style="width:200px" data-id="BlueFirstTake" /></td>
+				</tr>
+				<tr>
+		            <td>Время восполения 5%: </td>
+		            <td><input type="text" style="width:200px" data-id="TimeReset" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+				
+		    </table>
+		</div>
+		
+		<div id="divPointItem6" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+				<tr>
+		            <td>Пресет настроек: </td>
+		            <td><select id="selPreset" data-id="MainPresetId"></td>
+				</tr>
+				<tr>
+		            <td>Ресурс при захвате: </td>
+		            <td><select id="selResource" data-id="ResourceTakeId"></td>
+				</tr>
+				<tr>
+		            <td>Время старта выдачи патронов: </td>
+		            <td><input type="text" style="width:200px" data-id="TimeStartWeapon" /></td>
+				</tr>
+				<tr>
+		            <td>Кол-во захватов: </td>
+		            <td><input type="text" style="width:200px" data-id="NTake" /></td>
+				</tr>
+				<tr>
+		            <td>Кол-во очков при захвате: </td>
+		            <td><input type="text" style="width:200px" data-id="ScorePlayer" /></td>
+				</tr>
+				<tr>
+		            <td>Время сброса захвата: </td>
+		            <td><input type="text" style="width:200px" data-id="TimeReset" /></td>
+				</tr>
+				<tr>
+		            <td>Начало радиации: </td>
+		            <td><input type="text" style="width:200px" data-id="TimeStartRad" /></td>
+				</tr>
+				<tr>
+		            <td>Интервал радиации: </td>
+		            <td><input type="text" style="width:200px" data-id="IntervalRad" /></td>
+				</tr>
+				<tr>
+		            <td>Урон радиации: </td>
+		            <td><input type="text" style="width:200px" data-id="DamageRag" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+				
+		    </table>
+		</div>
+		
+		<div id="divPointItem7" class="divItem">
+			<div class="head">
+			    <span></span>
+			    <div style="float:right">
+			    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+		    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+		    	</div>
+		    </div>
+		    <table border="1" cellspacing="0" cellpadding="0">
+		    	<tr>
+		            <td width="15%">Название точки: </td>
+		            <td width="95%"><select id="selPoint" data-id="PointId"></td>
+				</tr>
+		        <tr>
+		            <td>Тип: </td>
+		            <td><select id="selTypeBomb" data-id="TypeBomb"></td>
+				</tr>
+				<tr>
+		            <td>Очки за подрыв: </td>
+		            <td><input type="text" style="width:200px" data-id="ScoreExpl" /></td>
+				</tr>
+				<tr>
+		            <td>Очки игроку за подрыв: </td>
+		            <td><input type="text" style="width:200px" data-id="ScorePlayer" /></td>
+				</tr>
+				<tr>
+		            <td>Очки игроку за обезвреживание: </td>
+		            <td><input type="text" style="width:200px" data-id="ScorePlayerDefuse" /></td>
+				</tr>
+				<tr>
+		            <td style="display: none;">Проритет подрыва: </td>
+		            <td style="display: none;" ><input type="text" style="width:200px" data-id="Order" /></td>
+				</tr>
+				<tr>
+		            <td>Играет: </td>
+		            <td><input type="checkbox" data-id="Active"/></td>
+				</tr>
+		    </table>
+		</div>
+		
+		
+		<div id="divSettingsBase" style="width: 100%; margin-top: 5px;">
+			<div class="head">
+			    <span>Настройки баз</span>
+		    </div>
+			
+	    	<table id="tblSettingsBaseRed" border="0" cellspacing="0" cellpadding="0" style="width: 450px; float:left; display: inline-table; border: none;">
+		    	<tr>
+		            <td style="width: 50%">База красных: </td>
+		            <td style="width: 50%;"><select data-id="RedBaseId" id="selBase"></td>
+				</tr>
+				<tr>
+		            <td>Режим работы: </td>
+		            <td><select data-id="IdTypeBaseRed" id="selTypeBase"></select></td>
+				</tr>
+				<tr id="basesettings2">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings2">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        
+				<tr id="basesettings3">
+		        	<td>Начальный интервал возрождения:</td>
+		            <td><input data-id="IntervalReBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+              	<tr id="basesettings3">
+		        	<td>Коэффициент:</td>
+		            <td><input data-id="TimePushBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+             	<tr id="basesettings3">
+		        	<td>Интервал обновления:</td>
+		            <td><input data-id="StartReBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings3">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings3">
+		        	<td>Гандикап</td>
+		            <td><input data-id="GandicapRed" type="checkbox" style="" /></td>
+		        </tr>
+		        
+				<tr id="basesettings4">
+		        	<td>Начальное число возрождений:</td>
+		            <td><input data-id="StartReBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings4">
+		        	<td>Период восполнения возрождений:</td>
+		            <td><input data-id="IntervalReBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings4">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings4">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        
+				<tr id="basesettings5">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings5">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings6">
+		        	<td>Реанимаций:</td>
+		            <td><input data-id="StartReBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings6">
+		        	<td>Патронов:</td>
+		            <td><input data-id="StartReWeaponBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings6">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings6">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseRed" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr>
+		            <td><input id="copyofright" type="button" value="Скопировать справа" /></td>
+		            <td></td>
+				</tr>
+		    </table>
+			
+			<table id="tblSettingsBaseBlue" border="0" cellspacing="0" cellpadding="0" style="width: 450px; float:left; display: inline-table; border: none; margin-left: 20px; ">
+		    	<tr>
+		            <td style="width: 50%">База синих: </td>
+		            <td style="width: 50%;"><select data-id="BlueBaseId" id="selBase"></td>
+				</tr>
+				<tr>
+		            <td>Режим работы:</td>
+		            <td><select data-id="IdTypeBaseBlue" id="selTypeBase"></select></td>
+				</tr>
+				
+				<tr id="basesettings2">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings2">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        
+				<tr id="basesettings3">
+		        	<td>Начальный интервал возрождения:</td>
+		            <td><input data-id="IntervalReBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+              	<tr id="basesettings3">
+		        	<td>Коэффициент:</td>
+		            <td><input data-id="TimePushBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+             	<tr id="basesettings3">
+		        	<td>Интервал обновления:</td>
+		            <td><input data-id="StartReBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings3">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings3">
+		        	<td>Гандикап</td>
+		            <td><input data-id="GandicapBlue" type="checkbox" style="" /></td>
+		        </tr>
+		        
+				<tr id="basesettings4">
+		        	<td>Начальное число возрождений:</td>
+		            <td><input data-id="StartReBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings4">
+		        	<td>Период восполнения возрождений:</td>
+		            <td><input data-id="IntervalReBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings4">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings4">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        
+				<tr id="basesettings5">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings5">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+				<tr id="basesettings6">
+		        	<td>Реанимаций:</td>
+		            <td><input data-id="StartReBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings6">
+		        	<td>Патронов:</td>
+		            <td><input data-id="StartReWeaponBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		         <tr id="basesettings6">
+		        	<td>Время удержания кнопки:</td>
+		            <td><input data-id="TimePushBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+		        <tr id="basesettings6">
+		        	<td>Время работы, от начала раунда:</td>
+		            <td><input data-id="TimeWorkBaseBlue" type="text" style="width:200px" /></td>
+		        </tr>
+				<tr>
+		            <td><input id="copyofleft" type="button" value="Скопировать слева" /></td>
+		            <td></td>
+				</tr>
+		    </table>
+		</div>
+		
+	</div>
+	
+	
+	
+	
+	<div id="divPointItem1" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Адрес: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	
+	
+	
+</body>
+</html>

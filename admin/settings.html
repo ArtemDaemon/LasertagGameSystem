@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv=content-type content="charset=utf-8">
+	<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+	<script src="js/settings.js" type="text/javascript"></script>
+	<link href="css/styles.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+	<div class="menu">
+		Перейти: <a href="games.html">Игры</a> | <a href="missions.html">Сценарии</a> | <a href="sounds.html">Пресеты звуков</a> | Настройки | <a href="http://192.168.0.108">Панель управления</a>
+	</div>
+	<div id="bases" class="tbllist">
+	    <div class="head">
+	    	<span>Список баз</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddBase">Добавить базу</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="5%">№</td>
+	            <td width="5%">Id</td>
+	            <td width="25%">Название</td>
+	            <td width="55%">Адрес</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divBaseItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideBaseItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveBaseItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Адрес: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="points" class="tbllist">
+	    <div class="head">
+	    	<span>Список точек</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddPoint">Добавить точку</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="5%">№</td>
+	            <td width="5%">Id</td>
+	            <td width="25%">Название</td>
+	            <td width="55%">Адрес</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divPointItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHidePointItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSavePointItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Адрес: </td>
+	            <td><input type="text" style="width:100%" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="presets" class="tbllist">
+	    <div class="head">
+	    	<span>Пресеты основных параметров</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddPreset">Добавить пресет</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="5%">№</td>
+	            <td width="5%">Id</td>
+	            <td width="25%">Название</td>
+	            <td width="20%">Сумма урона для захвата</td>
+	            <td width="20%">Время сброса захвата</td>
+	            <td width="15%">Броня</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divPresetItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHidePresetItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSavePresetItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="20%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Сумма урона для захвата: </td>
+	            <td><input type="text" style="width:100px" /></td>
+			</tr>
+			<tr>
+	            <td>Время сброса захвата: </td>
+	            <td><input type="text" style="width:100px" /></td>
+			</tr>
+			<tr>
+	            <td>Броня: </td>
+	            <td><input type="text" style="width:100px" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="weapons" class="tbllist">
+	    <div class="head">
+	    	<span>Таблица оружия</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddWeapon">Добавить оружие</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="5%">№</td>
+	            <td width="5%">Id</td>
+	            <td width="25%">Название</td>
+	            <td width="55%">TagerId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divWeaponItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideWeaponItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveWeaponItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+			<tr>
+	            <td width="10%">TagerId: </td>
+	            <td width="90%"><input type="text" style="width:100px" /></td>
+			</tr>
+	    </table>
+	</div>
+	
+	<div id="resources" class="tbllist">
+	    <div class="head">
+	    	<span>Таблица ресурсов</span>
+	    	<div style="float:right">
+	    		<a href="javascript:" id="lnkAddResource">Добавить ресурс</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	        <tr class="head">
+	        	<td width="5%">№</td>
+	            <td width="5%">Id</td>
+	            <td width="25%">Название</td>
+	            <td width="55%">Тип</td>
+	            <td width="0%" style="display: none;">TypeId</td>
+	            <td width="10%"></td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="divResourceItem" class="divItem">
+		<div class="head">
+		    <span></span>
+		    <div style="float:right">
+		    	<a href="javascript:" id="lnkHideResourceItem">Скрыть</a> | 
+	    		<a href="javascript:" id="lnkSaveResourceItem">Сохранить</a>
+	    	</div>
+	    </div>
+	    <table border="1" cellspacing="0" cellpadding="0">
+	    	<tr>
+	            <td width="10%">Название: </td>
+	            <td width="90%"><input type="text" style="width:100%" /></td>
+			</tr>
+	        <tr>
+	            <td>Тип: </td>
+	            <td><select id="selResourceType" style="width:200px"></select>
+			</tr>
+	    </table>
+	</div>
+	
+	
+	
+</body>
+</html>
