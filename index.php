@@ -8,9 +8,7 @@ ini_set('display_startup_errors', 1);
 define('DEBUG_GLOBAL', false);
 include('AutoLoader.php');
 
-//Adding connection of external files
-include('classes\Logger.php');
-include('classes\Config.php');
+
 
 // Start
 use classes\Logger;
